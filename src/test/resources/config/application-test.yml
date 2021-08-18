@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/opensrp_test
-    username: postgres
-    password: postgres
+    username: opensrp_admin
+    password: admin
     driver-class-name: org.postgresql.Driver
     hikari:
       poolName: Hikari
