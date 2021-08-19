@@ -23,8 +23,8 @@ public class ExcelSheetController {
 
 	@GetMapping("/$download")
 	public ResponseEntity<Resource> downloadAllTablesAsExcelSheets() {
-		String filename = "sid_bidan.xlsx";
-		log.debug("REST request to get all tables in schema `sid_bidan` as Excel Sheets");
+		String filename = "sid_rdt.xlsx";
+		log.debug("REST request to get all tables in schema `sid_rdt` as Excel Sheets");
 		InputStreamResource file = new InputStreamResource(excelSheetService.downloadAllTablesAsExcelSheets());
 
 		return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename)
