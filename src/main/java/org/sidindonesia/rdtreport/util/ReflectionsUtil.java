@@ -1,7 +1,10 @@
 package org.sidindonesia.rdtreport.util;
 
+import static java.util.stream.Collectors.toCollection;
+
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -23,7 +26,9 @@ public final class ReflectionsUtil {
 		TYPE_ANNOTATIONS_SCANNER, SUB_TYPES_SCANNER).getTypesAnnotatedWith(Repository.class);
 
 	private static final Set<Class<?>> ENTITY_CLASSES = new Reflections("org.sidindonesia.rdtreport.domain",
-		TYPE_ANNOTATIONS_SCANNER, SUB_TYPES_SCANNER).getTypesAnnotatedWith(Entity.class);
+		TYPE_ANNOTATIONS_SCANNER, SUB_TYPES_SCANNER).getTypesAnnotatedWith(Entity.class).stream()
+			.sorted((c1, c2) -> c1.getSimpleName().compareTo(c2.getSimpleName()))
+			.collect(toCollection(LinkedHashSet::new));
 
 	public static Set<Class<?>> getAllEntityClasses() {
 		return ENTITY_CLASSES;

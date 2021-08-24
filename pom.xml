@@ -10,7 +10,7 @@
   </parent>
   <groupId>org.sidindonesia.rdtreport</groupId>
   <artifactId>rdt-report</artifactId>
-  <version>1.0.0</version>
+  <version>1.0.1</version>
   <packaging>war</packaging>
   <name>rdt-report</name>
   <description>Generated from https://github.com/sid-indonesia/web-rest-archetype</description>
